@@ -1,4 +1,4 @@
-# JavaScript Algorithms and Data Structures Solutions
+# JavaScript Algorithms and Data Structures
 
 This repository contains my solutions for exercises from the **JavaScript Algorithms and Data Structures Masterclass** course created by Colt Steele.
 
