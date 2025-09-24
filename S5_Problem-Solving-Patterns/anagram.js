@@ -31,6 +31,7 @@ function isAnagram(a, b) {
     if (!(letter in letterCountB)) return false
 
     letterCountB[letter]--
+    if (letterCountB[letter] < 0) return false
   }
 
   return true
@@ -42,3 +43,11 @@ console.log(isAnagram('triangle', 'integral')) // true
 console.log(isAnagram('apple', 'papel')) // true
 console.log(isAnagram('rat', 'car')) // false
 console.log(isAnagram('hello', 'bello')) // false
+
+console.log(isAnagram('', '')) // true
+console.log(isAnagram('aaz', 'zza')) // false
+console.log(isAnagram('anagram', 'nagaram')) // true
+console.log(isAnagram('awesome', 'awesom')) // false
+console.log(isAnagram('amanaplanacanalpanama', 'acanalmanplanpamana')) // false
+console.log(isAnagram('qwerty', 'qeywrt')) // true
+console.log(isAnagram('texttwisttime', 'timetwisttext')) // true
