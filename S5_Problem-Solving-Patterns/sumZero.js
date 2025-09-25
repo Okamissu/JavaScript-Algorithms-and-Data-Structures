@@ -1,20 +1,27 @@
 /**
- * Pseudocode:
- * 1. Initialize two pointers: start at the beginning, end at the end of the array.
- * 2. While start is less than end:
- *    a. Calculate the sum of the values at start and end.
- *    b. If the sum is zero, return the pair.
- *    c. If the sum is greater than zero, move the end pointer left.
- *    d. If the sum is less than zero, move the start pointer right.
- * 3. If no pair is found, return undefined.
- */
-
-/**
- * Finds the first pair of numbers in a sorted array whose sum is zero.
  *
- * @param {number[]} arr - Sorted array of numbers.
- * @returns {(number[]|undefined)} - The pair whose sum is zero, or `undefined` if no such pair exists.
- */
+ * @param {number[]} arr - A sorted array of numbers to search for a zero-sum pair.
+ * @returns {(number[]|undefined)} Returns an array containing the pair of numbers whose sum is zero, or `undefined` if no such pair exists.
+ *
+ * @description
+ * Finds the first pair of numbers in a sorted array whose sum is zero.
+ * Pointers pattern
+ *
+ * 
+ * @pseudocode
+ * 1. Initialize two pointers: start at the beginning, end at the end of the array.
+ * 2. While start < end:
+ *    a. Calculate sum of arr[start] + arr[end].
+ *    b. If sum is zero, return [arr[start], arr[end]].
+ *    c. If sum > 0, decrement end.
+ *    d. If sum < 0, increment start.
+ * 3. If no pair found, return undefined.
+
+* @complexity
+* Time Complexity: O(n), where n is the length of the input array.
+* Space Complexity: O(1), as no additional space is used beyond variables for pointers.
+*/
+
 function sumZero(arr) {
   let end = arr.length - 1
   let start = 0

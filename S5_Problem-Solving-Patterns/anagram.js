@@ -1,23 +1,27 @@
-// Check if two words are same length, if not -> return false. END
-
-// Create a freq counter for the second word
-// Populate it ^ as such {a: 2, b: 1, z: 4}
-
-// Go over first word letters
-// Check if there is such letter.
-// False -> return false, can't be anagram. END
-// True -> minus one of the value of key letter
-// Continue this loop
-
-// If loop passed without returning early, return true. END
-
 /**
+ *
+ * @param {string} a - The first string to compare.
+ * @param {string} b - The second string to compare.
+ * @returns {boolean} Returns true if the strings are anagrams, false otherwise.
+ *
+ * @description
  * Checks if two strings are anagrams of each other.
+ * Counter pattern
  *
- * @param {string} a
- * @param {string} b
+ * @pseudocode
+ * 1. If length of a is not equal to length of b, return false.
+ * 2. Create an empty object letterCountB.
+ * 3. For each letter in b:
+ *    a. Increment letterCountB[letter] by 1.
+ * 4. For each letter in a:
+ *    a. If letter is not in letterCountB, return false.
+ *    b. Decrement letterCountB[letter] by 1.
+ *    c. If letterCountB[letter] < 0, return false.
+ * 5. Return true.
  *
- * @returns {boolean}
+ * @complexity
+ * Time Complexity: O(n), where n is the length of the input strings.
+ * Space Complexity: O(n), due to the frequency counter object.
  */
 function isAnagram(a, b) {
   if (a.length !== b.length) return false
