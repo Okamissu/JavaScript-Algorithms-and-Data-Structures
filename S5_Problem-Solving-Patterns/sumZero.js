@@ -1,5 +1,4 @@
 /**
- *
  * @param {number[]} arr - A sorted array of numbers to search for a zero-sum pair.
  * @returns {(number[]|undefined)} Returns an array containing the pair of numbers whose sum is zero, or `undefined` if no such pair exists.
  *
@@ -39,6 +38,7 @@ function sumZero(arr) {
 
   return undefined
 }
+
 // Example usage:
 // Expected output: [-3, 3] (first pair whose sum is zero)
 console.log(sumZero([-3, -2, -1, 0, 1, 2, 3]))

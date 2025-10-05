@@ -1,5 +1,4 @@
 /**
- *
  * @param {number[]} arr - Sorted array, which can include negative numbers
  * @returns {number} Returns a number of unique values of the array
  *
@@ -47,6 +46,7 @@ function countUniqueValuesSet(arr) {
   return uniqueValues.size
 }
 
+// Example usage:
 console.log(countUniqueValues([1, 1, 1, 1, 1, 2])) // 2
 console.log(countUniqueValues([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])) // 7
 console.log(countUniqueValues([])) // 0

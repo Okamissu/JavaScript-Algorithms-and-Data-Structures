@@ -1,5 +1,4 @@
 /**
- *
  * @param {number[]} a - The first array of numbers to compare.
  * @param {number[]} b - The second array of numbers to compare against squared values of the first array.
  * @returns {boolean} Returns true if each value in `a` has its squared value in `b` with the same frequency, false otherwise.
@@ -43,6 +42,7 @@ function isSameSquared(a, b) {
   return true
 }
 
+// Example usage:
 console.log(isSameSquared([1, 2, 3], [4, 1, 9])) // true
 console.log(isSameSquared([1, 2, 3], [1, 9])) // false
 console.log(isSameSquared([1, 2, 3], [1, 9, 5])) // false

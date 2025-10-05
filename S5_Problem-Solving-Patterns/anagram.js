@@ -1,5 +1,4 @@
 /**
- *
  * @param {string} a - The first string to compare.
  * @param {string} b - The second string to compare.
  * @returns {boolean} Returns true if the strings are anagrams, false otherwise.
