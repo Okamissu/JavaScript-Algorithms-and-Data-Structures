@@ -98,7 +98,7 @@ for (const [arr, n] of testCases) {
  * 4. If no such pair found → return false.
  */
 function findPairSorted(arr, n) {
-  arr.sort((a, b) => a - b)
+  arr = [...arr].sort((a, b) => a - b)
   n = Math.abs(n)
 
   let left = 0
