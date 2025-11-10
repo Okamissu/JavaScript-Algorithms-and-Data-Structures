@@ -1,6 +1,6 @@
 /**
- * @param {Array} arr - The array to flatten.
- * @returns {Array} - The flattened array.
+ * @param {Array<any>} arr - The nested array to flatten.
+ * @returns {Array<any>} The flattened array.
  *
  * @description
  * Flattens a nested array structure into a single-level array.

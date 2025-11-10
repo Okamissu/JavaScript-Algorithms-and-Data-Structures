@@ -1,7 +1,7 @@
 /**
- * @param {Array} arr
- * @param {Function} callback
- * @returns {Boolean}
+ * @param {any[]} arr - The array to check.
+ * @param {(value: any) => boolean} callback - Function called on each element.
+ * @returns {boolean} True if at least one element passes the callback, otherwise false.
  *
  * @description
  * Accepts an array and a callback.

@@ -1,6 +1,6 @@
 /**
- * @param {Array} arr - an array of positive integers
- * @returns {Array} An array of integers that appear twice in the input array, in ascending order
+ * @param {number[]} arr - An array of positive integers.
+ * @returns {number[]} An array of integers that appear exactly twice in the input array, in ascending order.
  *
  * @description
  * Given an array of positive integers, some elements appear twice and others appear once.

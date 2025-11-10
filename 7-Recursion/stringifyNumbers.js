@@ -1,11 +1,10 @@
 /**
- *
- * @param {Object} obj - The input object to process.
- * @returns {Object} A new object with all number values converted to strings.
+ * @param {Record<string, any>} obj - The input object to process.
+ * @returns {Record<string, any>} A new object with all number values converted to strings.
  *
  * @description
  * Recursively converts all number values in an object to strings.
- * 
+ *
  * Takes in an object and converts all number values to strings. Nested objects
  * are processed recursively. Arrays and other non-number values are preserved
  * as-is. The original object remains unchanged.

@@ -1,6 +1,6 @@
 /**
  * @param {number} num - The position (n) in the Fibonacci sequence to compute.
- * @param {Object} [memo={}] - An object used to store previously computed Fibonacci numbers for memoization.
+ * @param {Record<number, number>} [memo={}] - Stores previously computed Fibonacci numbers for memoization.
  * @returns {number} The n-th Fibonacci number.
  *
  * @description

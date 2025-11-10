@@ -1,7 +1,7 @@
 /**
  *
- * @param {Array} arr
- * @returns {Array}
+ * @param {(string|any)[]} arr - An array that may contain strings and other values.
+ * @returns {(string|any)[]} A new array where all string elements are capitalized.
  *
  * @description
  * Capitalizes all words in an array of strings using recursion.
@@ -16,8 +16,8 @@
  */
 function capitalizeWords(arr) {
   if (arr.length > 0) {
-    const word = typeof arr[0] === 'string' ? arr[0].toUpperCase() : arr[0];
-    return [word, ...capitalizeWords(arr.slice(1))];
+    const word = typeof arr[0] === 'string' ? arr[0].toUpperCase() : arr[0]
+    return [word, ...capitalizeWords(arr.slice(1))]
   }
 
   return [...arr]

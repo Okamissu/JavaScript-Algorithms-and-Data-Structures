@@ -1,5 +1,5 @@
 /**
- * @param {Array} sortedArr - a sorted array of integers (can be negative or positive)
+ * @param {number[]} sortedArr - a sorted array of integers (can be negative or positive)
  * @param {number} targetAverage - the target average to find in the array
  * @returns {boolean} True if a pair with the target average exists, otherwise false
  *

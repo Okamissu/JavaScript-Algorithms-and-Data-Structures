@@ -1,5 +1,5 @@
 /**
- * @param {Object} obj - The object to search for even numbers.
+ * @param {Record<string, any>} obj - The object to search for even numbers.
  * @returns {number} The sum of all even numbers found.
  *
  * @description
