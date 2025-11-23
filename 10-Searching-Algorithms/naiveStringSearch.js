@@ -1,7 +1,7 @@
 /**
 Naive Substring Search (Brute-Force)
 
-@function naiveSearch
+@function naiveStringSearch
 @param {string} text - The text in which to search
 @param {string} pattern - The substring pattern to look for
 @returns {number} The number of occurrences of the pattern in the text
@@ -21,7 +21,7 @@ Return the number of matches.
 Time Complexity: O(n * m) — n = text length, m = pattern length
 Space Complexity: O(1)
 */
-function naiveSearch(text, pattern) {
+function naiveStringSearch(text, pattern) {
   let count = 0
 
   for (let i = 0; i < text.length; i++) {
@@ -34,4 +34,4 @@ function naiveSearch(text, pattern) {
   return count
 }
 
-console.log(naiveSearch('lorie loled lolol', 'lol'))
+console.log(naiveStringSearch('lorie loled lolol', 'lol'))
