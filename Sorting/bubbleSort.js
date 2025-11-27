@@ -2,46 +2,82 @@
  * Bubble Sort
  *
  * @function bubbleSort
- * @param {number[]} array - An array of numbers to be sorted.
- * @returns {number[]} The same array sorted in ascending order.
+ * @param {Array} array - The array of elements to sort.
+ * @param {Function} [comparator] - Optional comparison function.
+ *   Should return a negative number if a < b, zero if a === b, and positive if a > b.
+ *   Defaults to numeric ascending order.
+ * @returns {Array} The sorted array (in place).
  *
  * @description
- * The algorithm repeatedly steps through the array, compares adjacent elements and swaps them if they are in the wrong order.
- * This process continues until the array is fully sorted.
- * This version modifies the original array in place.
+ * Sorts an array using the bubble sort algorithm. Repeatedly compares adjacent
+ * elements and swaps them if out of order according to the comparator.
+ * Optimizations:
+ *   - Early termination if no swaps in a pass.
+ *   - Reduce inner loop to the last swap index to skip already sorted tail.
  *
  * @pseudocode
- * 1. Start looping with i from the end of array towards the beginning.
- * 2. Start an inner loop with j from the beginning until i - 1.
- *    a. If array[j] > array[j+1], swap the values.
- * 3. Repeat until no more swaps are needed.
- * 4. Return the sorted array.
+ * 1. If no comparator is provided, use default numeric ascending comparator
+ * 2. Set n = array length
+ * 3. While n > 1:
+ *    a. Initialize lastSwapIndex = 0
+ *    b. Loop i from 0 to n - 2:
+ *       i. If comparator(array[i], array[i+1]) > 0:
+ *          - Swap array[i] and array[i+1]
+ *          - Set lastSwapIndex = i + 1
+ *    c. Set n = lastSwapIndex (reduce next pass to unsorted portion)
+ * 4. Return array
  *
  * @complexity
  * Time Complexity:
- *   - Worst Case: O(n^2) (array is in reverse order)
- *   - Best Case: O(n) (array is already sorted, if optimized with a swapped flag)
+ *   - Worst Case: O(n^2)
+ *   - Best Case: O(n) with swapped flag (early termination)
  *   - Average Case: O(n^2)
- * Space Complexity: O(1) – sorting is done in-place, no extra arrays used.
+ * Space Complexity: O(1) – sorts in place.
  */
-function bubbleSort(array) {
+const bubbleSort = (array, comparator) => {
+  if (!Array.isArray(array)) return array
   if (array.length < 2) return array
 
-  for (let i = array.length - 1; i > 0; i--) {
-    let swapped = false
-    for (let j = 0; j < i; j++) {
-      if (array[j] > array[j + 1]) {
-        ;[array[j], array[j + 1]] = [array[j + 1], array[j]] // inline swap
-        swapped = true
+  // Default comparator works for numeric arrays - provide a custom comparator for non-numeric arrays
+  const compare = comparator ?? ((a, b) => a - b)
+
+  let n = array.length
+  while (n > 1) {
+    let lastSwapIndex = 0
+    for (let i = 0; i < n - 1; i++) {
+      if (compare(array[i], array[i + 1]) > 0) {
+        ;[array[i], array[i + 1]] = [array[i + 1], array[i]]
+        lastSwapIndex = i + 1
       }
     }
-    if (!swapped) break
+    n = lastSwapIndex
   }
 
   return array
 }
 
 // Usage examples
-console.log(bubbleSort([1, 3, 2, 1, 52, 31, 10, 7, 82, 81, 0, 9]))
-console.log(bubbleSort([1, 2, 3, 4, 5]))
-console.log(bubbleSort([5, 3, 2, 3, 1]))
+console.log(bubbleSort([4, 20, 12, 10, 7, 9]))
+console.log(bubbleSort([0, -10, 7, 4]))
+console.log(bubbleSort([1, 2, 3]))
+console.log(bubbleSort([]))
+
+const nums = [
+  4, 3, 5, 3, 43, 232, 4, 34, 232, 32, 4, 35, 34, 23, 2, 453, 546, 75, 67, 4342,
+  32,
+]
+console.log(bubbleSort(nums))
+
+const kitties = ['LilBub', 'Garfield', 'Heathcliff', 'Blue', 'Grumpy']
+const stringComparator = (a, b) => (a < b ? -1 : a > b ? 1 : 0)
+console.log(bubbleSort(kitties, stringComparator))
+
+const moarKittyData = [
+  { name: 'LilBub', age: 7 },
+  { name: 'Garfield', age: 40 },
+  { name: 'Heathcliff', age: 45 },
+  { name: 'Blue', age: 1 },
+  { name: 'Grumpy', age: 6 },
+]
+const oldestToYoungest = (a, b) => b.age - a.age
+console.log(bubbleSort(moarKittyData, oldestToYoungest))
