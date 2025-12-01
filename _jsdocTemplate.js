@@ -8,9 +8,6 @@
  * @description
  * More detailed explanation if needed
  *
- * @pseudocode
- * Step by step algorithm description
- *
  * @complexity
  * Time Complexity: ...
  * Space Complexity: ...
