@@ -29,7 +29,7 @@ function insertionSort(array, comparator) {
   for (let i = 1; i < array.length; i++) {
     let currectVal = array[i]
     let j
-    for (j = i - 1; (j >= 0) & (compare(array[j], currectVal) > 0); j--) {
+    for (j = i - 1; j >= 0 && compare(array[j], currectVal) > 0; j--) {
       array[j + 1] = array[j]
     }
     array[j + 1] = currectVal
