@@ -48,10 +48,22 @@ class SinglyLinkedList {
 
     return current
   }
+
+  shift() {
+    if (this.tail === null) return undefined
+
+    const currentHead = this.head
+    this.head = this.head.next
+    this.length--
+
+    if (this.length === 0) this.tail = null
+
+    return currentHead
+  }
 }
 
 const list = new SinglyLinkedList()
 list.push(1)
-list.push(2)
-list.pop()
+
+list.shift()
 console.log(list)
