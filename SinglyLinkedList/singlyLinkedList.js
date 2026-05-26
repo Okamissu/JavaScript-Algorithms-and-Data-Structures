@@ -14,7 +14,7 @@ class SinglyLinkedList {
 
   push(value) {
     const newNode = new Node(value)
-    if (this.head === null) {
+    if (!this.head) {
       this.head = newNode
       this.tail = newNode
     } else {
@@ -27,7 +27,7 @@ class SinglyLinkedList {
   }
 
   pop() {
-    if (this.tail === null) return undefined
+    if (!this.head) return undefined
 
     let current = this.head
     let newTail = current
@@ -50,20 +50,34 @@ class SinglyLinkedList {
   }
 
   shift() {
-    if (this.tail === null) return undefined
+    if (!this.head) return undefined
 
     const currentHead = this.head
     this.head = this.head.next
+    currentHead.next = null
     this.length--
 
     if (this.length === 0) this.tail = null
 
     return currentHead
   }
+
+  unshift(value) {
+    const newNode = new Node(value)
+
+    if (!this.head) {
+      this.head = newNode
+      this.tail = newNode
+    } else {
+      newNode.next = this.head
+      this.head = newNode
+    }
+
+    this.length++
+    return this
+  }
 }
 
 const list = new SinglyLinkedList()
-list.push(1)
-
-list.shift()
+list.unshift(2)
 console.log(list)
