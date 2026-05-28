@@ -76,8 +76,28 @@ class SinglyLinkedList {
     this.length++
     return this
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null
+
+    let current = this.head
+    let counter = 0
+
+    while (counter < index) {
+      current = current.next
+      counter++
+    }
+
+    return current
+  }
 }
 
 const list = new SinglyLinkedList()
 list.unshift(2)
+list.unshift(3)
+list.unshift(4)
+list.unshift(5)
+list.unshift(6)
+
+console.log(list.get(3))
 console.log(list)
