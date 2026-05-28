@@ -90,6 +90,15 @@ class SinglyLinkedList {
 
     return current
   }
+
+  set(index, value) {
+    const foundNode = this.get(index)
+
+    if (!foundNode) return false
+
+    foundNode.value = value
+    return true
+  }
 }
 
 const list = new SinglyLinkedList()
@@ -100,4 +109,6 @@ list.unshift(5)
 list.unshift(6)
 
 console.log(list.get(3))
-console.log(list)
+console.log(list.set(3, '!'))
+console.log(JSON.stringify(list, null, 2))
+console.dir(list, { depth: null })
