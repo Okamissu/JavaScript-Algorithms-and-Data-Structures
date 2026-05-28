@@ -12,6 +12,18 @@ class SinglyLinkedList {
     this.length = 0
   }
 
+  print() {
+    const values = []
+    let current = this.head
+
+    while (current) {
+      values.push(current.value)
+      current = current.next
+    }
+
+    console.log(values)
+  }
+
   push(value) {
     const newNode = new Node(value)
     if (!this.head) {
@@ -110,5 +122,6 @@ list.unshift(6)
 
 console.log(list.get(3))
 console.log(list.set(3, '!'))
-console.log(JSON.stringify(list, null, 2))
-console.dir(list, { depth: null })
+// console.log(JSON.stringify(list, null, 2))
+// console.dir(list, { depth: null })
+list.print()
