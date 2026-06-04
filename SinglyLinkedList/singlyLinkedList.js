@@ -111,17 +111,35 @@ class SinglyLinkedList {
     foundNode.value = value
     return true
   }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false
+    if (index === this.length) return !!this.push(value)
+    if (index === 0) return !!this.unshift(value)
+    else {
+      const preNode = this.get(index - 1)
+      const newNode = new Node(value)
+
+      newNode.next = preNode.next
+      preNode.next = newNode
+
+      this.length++
+      return true
+    }
+  }
 }
 
 const list = new SinglyLinkedList()
-list.unshift(2)
-list.unshift(3)
-list.unshift(4)
-list.unshift(5)
-list.unshift(6)
+list.push(2)
+list.push(3)
+list.push(4)
+list.push(5)
+list.push(6)
 
-console.log(list.get(3))
-console.log(list.set(3, '!'))
-// console.log(JSON.stringify(list, null, 2))
-// console.dir(list, { depth: null })
+console.log(list.insert(0, 'first'))
+console.log(list.insert(3, '!'))
+console.log(list.insert(list.length, 'last'))
+console.log(list.insert(-1, 'nope'))
+console.log(list.insert(list.length + 1, 'nope'))
+
 list.print()
