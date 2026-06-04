@@ -129,7 +129,7 @@ class SinglyLinkedList {
   }
 
   remove(index) {
-    if (index < 0 || index >= this.length) return false
+    if (index < 0 || index >= this.length) return undefined
     if (index === 0) return this.shift()
     if (index === this.length - 1) return this.pop()
 
@@ -158,7 +158,7 @@ console.log(list.insert(list.length + 1, 'nope'))
 console.log(list.remove(0))
 console.log(list.remove(list.length))
 console.log(list.remove(-1))
-console.log(list.remove(this.length - 1))
+console.log(list.remove(list.length - 1))
 console.log(list.remove(3))
 
 list.print()
