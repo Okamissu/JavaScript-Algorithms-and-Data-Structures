@@ -140,6 +140,23 @@ class SinglyLinkedList {
     this.length--
     return removedNode
   }
+
+  reverse() {
+    ;[this.head, this.tail] = [this.tail, this.head]
+
+    let currentPointer = this.tail
+    let prevPointer = null
+    let nextPointer = null
+
+    while (currentPointer) {
+      nextPointer = currentPointer.next
+      currentPointer.next = prevPointer
+      prevPointer = currentPointer
+      currentPointer = nextPointer
+    }
+
+    return this
+  }
 }
 
 const list = new SinglyLinkedList()
@@ -149,16 +166,8 @@ list.push(4)
 list.push(5)
 list.push(6)
 
-console.log(list.insert(0, 'first'))
-console.log(list.insert(3, '!'))
-console.log(list.insert(list.length, 'last'))
-console.log(list.insert(-1, 'nope'))
-console.log(list.insert(list.length + 1, 'nope'))
+list.print()
 
-console.log(list.remove(0))
-console.log(list.remove(list.length))
-console.log(list.remove(-1))
-console.log(list.remove(list.length - 1))
-console.log(list.remove(3))
+list.reverse()
 
 list.print()
