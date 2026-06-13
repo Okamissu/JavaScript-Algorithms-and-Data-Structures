@@ -157,6 +157,27 @@ class SinglyLinkedList {
 
     return this
   }
+
+  rotate(shift) {
+    if (!this.head || this.length <= 1) return this
+
+    shift = ((shift % this.length) + this.length) % this.length
+
+    if (shift === 0) return this
+
+    this.tail.next = this.head
+    if (shift < 0) shift = this.length - shift
+
+    let currentNode = this.head
+    for (let i = 0; i < shift - 1; i++) {
+      currentNode = currentNode.next
+    }
+
+    this.tail = currentNode
+    this.head = currentNode.next
+
+    currentNode.next = null
+  }
 }
 
 const list = new SinglyLinkedList()
@@ -181,4 +202,5 @@ list.print()
 // insert    O(n)
 // remove    O(n)
 // reverse   O(n)
+// rotate    O(n)
 // print     O(n)
