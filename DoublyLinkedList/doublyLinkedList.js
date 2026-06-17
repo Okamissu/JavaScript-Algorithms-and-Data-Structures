@@ -34,7 +34,7 @@ class DoublyLinkedList {
     const currentTail = this.tail
 
     if (this.length === 1) {
-      this.head = this.tail = 0
+      this.head = this.tail = null
     } else {
       this.tail = currentTail.prev
       this.tail.next = null
