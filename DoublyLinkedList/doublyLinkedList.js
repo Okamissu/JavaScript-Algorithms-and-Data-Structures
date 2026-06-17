@@ -56,6 +56,18 @@ class DoublyLinkedList {
 
     console.log(values)
   }
+
+  printDetailed() {
+    const values = []
+    let current = this.head
+
+    while (current) {
+      values.push(current)
+      current = current.next
+    }
+
+    console.log(values)
+  }
 }
 
 const list = new DoublyLinkedList()
@@ -67,5 +79,4 @@ list.push(102)
 
 console.log(list.pop())
 
-console.log(list)
-list.print()
+list.printDetailed()
