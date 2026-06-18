@@ -45,6 +45,24 @@ class DoublyLinkedList {
     return currentTail
   }
 
+  shift() {
+    if (this.head === null) return undefined
+
+    const currentHead = this.head
+
+    if (this.length === 1) {
+      this.head = this.tail = null
+    } else {
+      this.head = currentHead.next
+      this.head.prev = null
+
+      currentHead.next = null
+    }
+
+    this.length--
+    return currentHead
+  }
+
   print() {
     const values = []
     let current = this.head
@@ -77,6 +95,6 @@ list.push(100)
 list.push(101)
 list.push(102)
 
-console.log(list.pop())
+console.log(list.shift())
 
 list.printDetailed()
