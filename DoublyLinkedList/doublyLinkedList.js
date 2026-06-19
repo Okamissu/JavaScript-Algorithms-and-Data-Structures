@@ -78,6 +78,26 @@ class DoublyLinkedList {
     return currentHead
   }
 
+  get(index) {
+    if (index < 0 || index >= this.length) return null
+    const middleIndex = Math.floor(this.length / 2)
+
+    let foundNode
+    if (index <= middleIndex) {
+      foundNode = this.head
+      for (let i = 0; i < index; i++) {
+        foundNode = foundNode.next
+      }
+    } else {
+      foundNode = this.tail
+      for (let i = this.length - 1; i > index; i--) {
+        foundNode = foundNode.prev
+      }
+    }
+
+    return foundNode
+  }
+
   print() {
     const values = []
     let current = this.head
@@ -108,9 +128,16 @@ const list = new DoublyLinkedList()
 list.unshift(99)
 list.unshift(100)
 list.unshift(101)
-list.push(102)
+list.unshift(102)
+list.push(98)
 
-console.log(list.shift())
-console.log(list.shift())
+//sth wrong fix
+console.log(list.get(-1))
+console.log(list.get(0))
+console.log(list.get(1))
+console.log(list.get(2))
+console.log(list.get(3))
+console.log(list.get(4))
+console.log(list.get(5))
 
-list.printDetailed()
+list.print()
