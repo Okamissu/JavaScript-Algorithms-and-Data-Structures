@@ -134,6 +134,25 @@ class DoublyLinkedList {
     return true
   }
 
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined
+
+    if (index === 0) return this.shift()
+    if (index === this.length - 1) return this.pop()
+
+    const removedNode = this.get(index)
+    const prevNode = removedNode.prev
+    const nextNode = removedNode.next
+
+    prevNode.next = nextNode
+    nextNode.prev = prevNode
+
+    removedNode.next = null
+    removedNode.prev = null
+    this.length--
+    return removedNode
+  }
+
   print() {
     const values = []
     let current = this.head
@@ -161,19 +180,20 @@ class DoublyLinkedList {
 
 const list = new DoublyLinkedList()
 
-list.unshift(99)
-list.unshift(100)
-list.unshift(101)
-list.unshift(102)
-list.push(98)
+list.push(1)
+list.push(2)
+list.push(3)
+list.push(4)
+list.push(5)
+list.push(6)
+list.push(7)
 
-//sth wrong fix
-console.log(list.get(-1))
-console.log(list.get(0))
-console.log(list.get(1))
-console.log(list.get(2))
-console.log(list.get(3))
-console.log(list.get(4))
-console.log(list.get(5))
-
+list.remove(0)
 list.print()
+
+list.remove(5)
+list.print()
+
+list.remove(2)
+
+list.printDetailed()
