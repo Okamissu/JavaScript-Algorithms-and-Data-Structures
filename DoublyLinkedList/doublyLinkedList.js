@@ -154,8 +154,7 @@ class DoublyLinkedList {
   }
 
   reverse() {
-    if (this.length === 0) return null
-    if (this.length === 1) return this
+    if (this.length <= 1) return this
 
     let currentNode = this.head
     while (currentNode) {
@@ -165,7 +164,7 @@ class DoublyLinkedList {
       ]
       currentNode = currentNode.prev
     }
-    this.head = this.tail
+    ;[this.head, this.tail] = [this.tail, this.head]
     return this
   }
 
