@@ -56,3 +56,6 @@ console.log(stack)
 stack.pop()
 
 console.log(stack)
+
+// push   O(1)
+// pop    O(1)
